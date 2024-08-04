@@ -23,7 +23,7 @@ double sum3(std::vector<double> const &vec) {
 
 void bench(
     char const *name,
-    std::function<double(std::vector<double> const &)> const &func,
+    double (*func)(std::vector<double> const &),
     std::vector<double> const &values) {
   const auto t1 = std::chrono::high_resolution_clock::now();
   auto const sum = func(values);
