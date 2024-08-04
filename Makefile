@@ -6,7 +6,7 @@ CPPFLAGS_PPROF=-O0 -g
 CPPFLAGS_GPROF=-O0 -g -pg
 CPPFLAGS_PERF=-O0 -g
 
-LDFLAGS=-L$(PREFIX)/lib -L$(PREFIX)/lib64 -lprofiler -Wl,-rpath=$(PREFIX)/lib,-rpath=$(PREFIX)/lib64 -pthread
+LDFLAGS=-L$(PREFIX)/lib -L$(PREFIX)/lib64 -Wl,-rpath=$(PREFIX)/lib,-rpath=$(PREFIX)/lib64 -pthread
 LDFLAGS_PPROF=-lprofiler
 LDFLAGS_GPROF=-pg
 LDFLAGS_PERF=
