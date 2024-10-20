@@ -31,6 +31,7 @@ main-perf: main-perf.o
 
 pprof: main-pprof
 	CPUPROFILE=main-pprof.out ./main-pprof
+	pprof --dot ./main-pprof main-pprof.out | dot -Tpng -o img/main-pprof.png
 	pprof --web ./main-pprof main-pprof.out
 gprof: main-gprof
 	./main-gprof
