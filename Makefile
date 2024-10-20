@@ -1,5 +1,5 @@
 PREFIX=/usr
-CXX=g++
+CXX=clang++
 
 CPPFLAGS=-std=c++20 -I$(PREFIX)/include
 CPPFLAGS_PPROF=-O0 -g
@@ -30,12 +30,15 @@ main-perf: main-perf.o
 	$(CXX) -o $@ $< $(LDFLAGS) $(LDFLAGS_PERF)
 
 pprof: main-pprof
+	mkdir -p output
 	CPUPROFILE=main-pprof.out ./main-pprof
-	pprof --dot ./main-pprof main-pprof.out | dot -Tpng -o img/main-pprof.png
+	pprof --dot ./main-pprof main-pprof.out | dot -Tpng -o output/main-pprof.png
 	pprof --web ./main-pprof main-pprof.out
 gprof: main-gprof
+	mkdir -p output
 	./main-gprof
-	gprof --graph main-gprof
+	gprof --graph main-gprof >output/main-gprof.txt
+	head -64 output/main-gprof.txt
 perf: main-perf
 	perf record -F 1000 -g ./main-perf
 	perf script report flamegraph --allow-download
