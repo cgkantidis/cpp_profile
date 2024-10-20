@@ -21,6 +21,15 @@ double sum3(std::vector<double> const &vec) {
   return std::reduce(vec.begin(), vec.end(), 0.0, add_doubles);
 }
 
+double sum4(std::vector<double> const &vec) {
+  double total = 0.0;
+  std::size_t len = vec.size();
+  for (std::size_t i = 0; i < len; ++i) {
+    total += vec[i];
+  }
+  return total;
+}
+
 void bench(
     char const *name,
     double (*func)(std::vector<double> const &),
@@ -38,9 +47,11 @@ int main() {
   //bench("sum1", sum1, values);
   //bench("sum2", sum2, values);
   //bench("sum3", sum3, values);
+  //bench("sum4", sum4, values);
 
   // multi-threaded
-  std::jthread t1(bench, "sum1", std::ref(sum1), std::ref(values));
-  std::jthread t2(bench, "sum2", std::ref(sum2), std::ref(values));
-  std::jthread t3(bench, "sum3", std::ref(sum3), std::ref(values));
+  std::jthread t1(bench, "sum1", &sum1, std::ref(values));
+  std::jthread t2(bench, "sum2", &sum2, std::ref(values));
+  std::jthread t3(bench, "sum3", &sum3, std::ref(values));
+  std::jthread t4(bench, "sum4", &sum4, std::ref(values));
 }
