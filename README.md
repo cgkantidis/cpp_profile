@@ -79,3 +79,11 @@ index % time    self  children    called     name
                 0.00    0.00       1/1           std::tuple_element<3ul, std::tuple<void (*)(char const*, double (*)(std::vector<double, std::allocator<double> > const&), std::vector<double, std::allocator<double> > const&), char const*, std::reference_wrapper<double (std::vector<double, std::allocator<double> > const&)>, std::reference_wrapper<std::vector<double, std::allocator<double> > const> > >::type&& std::get<3ul, void (*)(char const*, double (*)(std::vector<double, std::allocator<double> > const&), std::vector<double, std::allocator<double> > const&), char const*, std::reference_wrapper<double (std::vector<double, std::allocator<double> > const&)>, std::reference_wrapper<std::vector<double, std::allocator<double> > const> >(std::tuple<void (*)(char const*, double (*)(std::vector<double, std::allocator<double> > const&), std::vector<double, std::allocator<double> > const&), char const*, std::reference_wrapper<double (std::vector<double, std::allocator<double> > const&)>, std::reference_wrapper<std::vector<double, std::allocator<double> > const> >&&) [161]
 ...
 ```
+
+# [perf](https://perfwiki.github.io/main)
+
+Linux profiling with performance counters
+
+`perf` can instrument CPU performance counters, tracepoints, kprobes, and uprobes (dynamic tracing). It is capable of lightweight profiling.
+
+![main-perf](output/main-perf.png)

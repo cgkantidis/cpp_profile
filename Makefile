@@ -1,5 +1,5 @@
 PREFIX=/usr
-CXX=clang++
+CXX=g++
 
 CPPFLAGS=-std=c++20 -I$(PREFIX)/include
 CPPFLAGS_PPROF=-O0 -g

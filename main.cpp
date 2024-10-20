@@ -35,9 +35,9 @@ void bench(
 int main() {
   const std::vector<double> values(100'000'007, 0.1);
   // single-threaded
-  bench("sum1", sum1, values);
-  bench("sum2", sum2, values);
-  bench("sum3", sum3, values);
+  //bench("sum1", sum1, values);
+  //bench("sum2", sum2, values);
+  //bench("sum3", sum3, values);
 
   // multi-threaded
   std::jthread t1(bench, "sum1", std::ref(sum1), std::ref(values));
